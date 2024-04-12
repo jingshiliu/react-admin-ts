@@ -26,9 +26,9 @@ function App() {
                     {/* cssbaseline automatically applies theme.palette.background.default
                  to the background of the page */}
                     <CssBaseline />
-                    <div className="app">
+                    <div className="app flex">
                         <Sidebar />
-                        <main className="content">
+                        <main className="content w-full">
                             <Topbar />
                             <Routes>
                                 {/* <Route path="/" element={<Dashboard />} /> */}
