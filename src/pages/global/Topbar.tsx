@@ -11,7 +11,7 @@ import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined'
 import SearchIcon from '@mui/icons-material/Search'
 
 
-function Topbar(props) {
+function Topbar() {
     const theme: Theme = useTheme()
     const colors = tokens(theme.palette.mode)
     const { themeMode, toggleColorMode } =
