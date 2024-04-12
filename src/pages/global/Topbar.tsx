@@ -14,24 +14,28 @@ import App from '@/App'
 function Topbar(props) {
     const theme: Theme = useTheme()
     const colors = tokens(theme.palette.mode)
-    const {themeMode, toggleColorMode} = useContext<ColorMode>(ColorModeContext)
-console.log(themeMode)
+    const { themeMode, toggleColorMode } =
+        useContext<ColorMode>(ColorModeContext)
     return (
-        <Box className={'p-4 flex justify-between'}>
-            <Box >
-                <InputBase />
+        <Box component={'nav'} className={'flex justify-between p-4'}>
+            <Box
+                className={'rounded pl-3 align-middle'}
+                sx={{
+                    backgroundColor: colors.primary[400],
+                }}
+            >
+                <InputBase placeholder="Search" />
+                <IconButton>
+                    <SearchIcon />
+                </IconButton>
             </Box>
             <Box>
-                <IconButton
-                    onClick={toggleColorMode}
-                >
-                    {
-                        themeMode === AppTheme.LIGHT ? (
-                            <LightModeOutlinedIcon />
-                        ) : (
-                            <DarkModeOutlinedIcon />
-                        )
-                    }
+                <IconButton onClick={toggleColorMode}>
+                    {themeMode === AppTheme.LIGHT ? (
+                        <LightModeOutlinedIcon />
+                    ) : (
+                        <DarkModeOutlinedIcon />
+                    )}
                 </IconButton>
                 <IconButton>
                     <NotificationsOutlinedIcon />
