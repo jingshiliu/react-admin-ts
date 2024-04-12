@@ -31,7 +31,7 @@ function App() {
                         <main className="content w-full">
                             <Topbar />
                             <Routes>
-                                {/* <Route path="/" element={<Dashboard />} /> */}
+                                <Route path="/" element={<Dashboard />} />
                                 {/* <Route path="/team" element={<Team />} />
                                 <Route
                                     path="/invoices"
