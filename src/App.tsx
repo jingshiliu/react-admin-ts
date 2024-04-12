@@ -1,15 +1,22 @@
-import '@fontsource/roboto/300.css'
-import '@fontsource/roboto/400.css'
-import '@fontsource/roboto/500.css'
-import '@fontsource/roboto/700.css'
-
 import { useState } from 'react'
+import { ColorModeContext, useMode } from './theme'
+import { CssBaseline, ThemeProvider } from '@mui/material'
+import Topbar from './pages/global/Topbar'
 
 function App() {
+    const [theme, colorMode] = useMode()
+
     return (
-        <>
-            <main className={''}>Hello</main>
-        </>
+        <ColorModeContext.Provider value={colorMode}>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <div className='app'>
+                    <main className='content'>
+                        <Topbar />
+                    </main>
+                </div>
+            </ThemeProvider>
+        </ColorModeContext.Provider>
     )
 }
 
