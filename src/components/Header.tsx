@@ -12,7 +12,7 @@ function Header({ title, description }: HeaderProps) {
     const colors = tokens(themeMode)
 
     return (
-        <Box fontSize="larger">
+        <Box fontSize="larger" component={'header'}>
             <Typography
                 variant="h2"
                 sx={{ color: colors.grey[100] }}
