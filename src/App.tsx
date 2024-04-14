@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ColorModeContext, useMode } from './theme'
-import { CssBaseline, ThemeProvider } from '@mui/material'
+import { CssBaseline, ThemeProvider, Box } from '@mui/material'
 import Topbar from './pages/global/Topbar'
 import Sidebar from './pages/global/Sidebar'
 import Dashboard from './pages/dashboard'
-// import Team from './pages/team'
+import Team from './pages/team'
 // import Invoices from './pages/invoices'
 // import Contacts from './pages/contacts'
 // import Bar from './pages/bar'
@@ -26,13 +26,15 @@ function App() {
                     {/* cssbaseline automatically applies theme.palette.background.default
                  to the background of the page */}
                     <CssBaseline />
-                    <div className="app flex">
+                    <div className="app flex max-w-screen">
                         <Sidebar />
-                        <main className="content w-full">
+                        <main className="content flex w-full flex-col max-w-full">
                             <Topbar />
-                            <Routes>
-                                <Route path="/" element={<Dashboard />} />
-                                {/* <Route path="/team" element={<Team />} />
+                            <Box className="h-full w-full">
+                                <Routes>
+                                    <Route path="/" element={<Dashboard />} />
+                                    <Route path="/team" element={<Team />} />
+                                    {/* 
                                 <Route
                                     path="/invoices"
                                     element={<Invoices />}
@@ -54,7 +56,8 @@ function App() {
                                     path="/calendar"
                                     element={<Calendar />} 
                                 />*/}
-                            </Routes>
+                                </Routes>
+                            </Box>
                         </main>
                     </div>
                 </ThemeProvider>
