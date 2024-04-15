@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import { DataGrid, GridToolbar, type GridColDef } from '@mui/x-data-grid'
 import { type ColorMode, tokens, ColorModeContext } from '@/theme'
 import { useContext } from 'react'
