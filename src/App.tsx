@@ -7,7 +7,7 @@ import Sidebar from './pages/global/Sidebar'
 import Dashboard from './pages/dashboard'
 import Team from './pages/team'
 // import Invoices from './pages/invoices'
-// import Contacts from './pages/contacts'
+import Contacts from './pages/contacts'
 // import Bar from './pages/bar'
 // import Form from './pages/form'
 // import Line from './pages/line'
@@ -31,20 +31,24 @@ function App() {
                         style={{ maxWidth: '100vw' }}
                     >
                         <Sidebar />
-                        <main className="content flex w-full h-screen flex-col" style={{ maxWidth: '100vw' }}>
+                        <main
+                            className="content flex h-screen w-full flex-col"
+                            style={{ maxWidth: '100vw' }}
+                        >
                             <Topbar />
                             <Routes>
                                 <Route path="/" element={<Dashboard />} />
                                 <Route path="/team" element={<Team />} />
+                                <Route
+                                    path="/contacts"
+                                    element={<Contacts />}
+                                />
                                 {/* 
                                 <Route
                                     path="/invoices"
                                     element={<Invoices />}
                                 />
-                                <Route
-                                    path="/contacts"
-                                    element={<Contacts />}
-                                />
+                                
                                 <Route path="/bar" element={<Bar />} />
                                 <Route path="/form" element={<Form />} />
                                 <Route path="/line" element={<Line />} />
