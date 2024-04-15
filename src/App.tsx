@@ -26,15 +26,17 @@ function App() {
                     {/* cssbaseline automatically applies theme.palette.background.default
                  to the background of the page */}
                     <CssBaseline />
-                    <div className="app flex max-w-screen">
+                    <div
+                        className="app flex max-h-screen"
+                        style={{ maxWidth: '100vw' }}
+                    >
                         <Sidebar />
-                        <main className="content flex w-full flex-col max-w-full">
+                        <main className="content flex w-full h-screen flex-col" style={{ maxWidth: '100vw' }}>
                             <Topbar />
-                            <Box className="h-full w-full">
-                                <Routes>
-                                    <Route path="/" element={<Dashboard />} />
-                                    <Route path="/team" element={<Team />} />
-                                    {/* 
+                            <Routes>
+                                <Route path="/" element={<Dashboard />} />
+                                <Route path="/team" element={<Team />} />
+                                {/* 
                                 <Route
                                     path="/invoices"
                                     element={<Invoices />}
@@ -56,8 +58,7 @@ function App() {
                                     path="/calendar"
                                     element={<Calendar />} 
                                 />*/}
-                                </Routes>
-                            </Box>
+                            </Routes>
                         </main>
                     </div>
                 </ThemeProvider>

@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material'
-import { DataGrid, type GridColDef, type GridRowsProp } from '@mui/x-data-grid'
+import { DataGrid, type GridColDef} from '@mui/x-data-grid'
 import { type ColorMode, tokens, ColorModeContext } from '@/theme'
 import { useContext } from 'react'
 
@@ -84,12 +84,13 @@ function Team() {
         <Box className="flex h-full flex-col p-4">
             <Header title="Team" description="Managing the Team Members" />
             <Box
-                className="mt-8 h-full w-full"
+                className="mt-8 flex h-full"
                 sx={{
                     '& .MuiDataGrid-root': {
                         border: 'none',
                         backgroundColor: colors.primary[400],
                         color: colors.primary[100],
+                        width: 'inherit',
                     },
                     '& .MuiDataGrid-columnHeader': {
                         backgroundColor: colors.blueAccent[700],
