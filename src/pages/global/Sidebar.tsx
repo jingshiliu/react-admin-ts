@@ -94,13 +94,13 @@ function Sidebar() {
             <ProSidebar
                 collapsed={collapsed}
                 collapsedWidth="84px"
-                transitionDuration={200}
                 className="p-6"
+                width="300px"
                 rootStyles={{
                     backgroundColor: colors.primary[400],
                     borderRight: `none`,
-                    width: 'fit-content',
                     height: '100vh',
+                    transition: 'all 200ms ease-in-out',
                 }}
             >
                 <Box
@@ -127,7 +127,7 @@ function Sidebar() {
 
                 {!collapsed && (
                     <Box
-                        className="flex flex-col items-center p-6"
+                        className="flex flex-col items-center p-6 text-sm"
                         sx={{
                             backgroundColor: colors.primary[400],
                         }}
@@ -160,8 +160,7 @@ function Sidebar() {
 
                 <Box
                     sx={{
-                        padding: collapsed ? 0 : 4,
-                        paddingTop: 0,
+                        padding: collapsed ? 0 : 3,
                         backgroundColor: colors.primary[400],
                     }}
                 >
