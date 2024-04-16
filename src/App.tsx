@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ColorModeContext, useMode } from './theme'
-import { CssBaseline, ThemeProvider, Box } from '@mui/material'
+import { CssBaseline, ThemeProvider } from '@mui/material'
 import Topbar from './pages/global/Topbar'
 import Sidebar from './pages/global/Sidebar'
 import Dashboard from './pages/dashboard'
@@ -12,7 +11,7 @@ import Contacts from './pages/contacts'
 import Form from './pages/form'
 // import Line from './pages/line'
 // import Pie from './pages/pie'
-// import FAQ from './pages/faq'
+import FAQ from './pages/faq'
 // import Geography from './pages/geography'
 import Calendar from './pages/calendar'
 
@@ -52,6 +51,7 @@ function App() {
                                     path="/calendar"
                                     element={<Calendar />} 
                                 />
+                                <Route path="/faq" element={<FAQ />} />
                                 {/* 
                                 
                                 
@@ -59,7 +59,7 @@ function App() {
                                 
                                 <Route path="/line" element={<Line />} />
                                 <Route path="/pie" element={<Pie />} />
-                                <Route path="/faq" element={<FAQ />} />
+                                
                                 <Route
                                     path="/geography"
                                     element={<Geography />}
