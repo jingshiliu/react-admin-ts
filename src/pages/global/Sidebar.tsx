@@ -209,7 +209,7 @@ function Sidebar() {
 
                         <Typography sx={sectionLabelStyles}>Pages</Typography>
                         <Item
-                            to="/profile"
+                            to="/form"
                             title="Profile Form"
                             icon={PersonOutlinedIcon}
                             setSelectedBtn={setSelectedBtn}
