@@ -1,7 +1,7 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { type ColorMode, ColorModeContext, tokens } from '@/theme'
 
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Typography from '@mui/material/Typography'
 import { Box, IconButton, type SvgIconTypeMap } from '@mui/material'
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
@@ -29,17 +29,16 @@ interface ItemProps {
     title: string
     icon: MUIIcon
     to: string
-    selectedBtn: string
-    setSelectedBtn: (isSelected: string) => void
+    curPath: string
 }
 
-function Item({ title, icon, to, selectedBtn, setSelectedBtn }: ItemProps) {
+function Item({ title, icon, to, curPath }: ItemProps) {
     const { themeMode } = useContext<ColorMode>(ColorModeContext)
     const colors = tokens(themeMode)
     const Icon = icon
     const color = {
         color:
-            selectedBtn !== title
+            curPath !== to
                 ? colors.primary[100]
                 : colors.blueAccent[500],
     }
@@ -48,7 +47,6 @@ function Item({ title, icon, to, selectedBtn, setSelectedBtn }: ItemProps) {
         <MenuItem
             component={<Link to={to} />}
             icon={<Icon sx={color} />}
-            onClick={() => setSelectedBtn(title)}
         >
             <Typography sx={color}>{title}</Typography>
         </MenuItem>
@@ -56,10 +54,16 @@ function Item({ title, icon, to, selectedBtn, setSelectedBtn }: ItemProps) {
 }
 
 function Sidebar() {
+    const location = useLocation()
     const [collapsed, setCollapsed] = useState<boolean>(false)
-    const [selectedBtn, setSelectedBtn] = useState<string>('Dashboard')
+    const [curPath, setCurPath] = useState<string>(location.pathname)
     const { themeMode } = useContext<ColorMode>(ColorModeContext)
     const colors = tokens(themeMode)
+    
+
+    useEffect(() => {
+        setCurPath(location.pathname)
+    }, [location])
 
     const sectionLabelStyles = {
         fontSize: 12,
@@ -180,8 +184,7 @@ function Sidebar() {
                             to="/"
                             title="Dashboard"
                             icon={HomeOutlinedIcon}
-                            setSelectedBtn={setSelectedBtn}
-                            selectedBtn={selectedBtn}
+                            curPath={curPath}
                         />
 
                         <Typography sx={sectionLabelStyles}>Data</Typography>
@@ -189,22 +192,19 @@ function Sidebar() {
                             to="/team"
                             title="Manage Team"
                             icon={PeopleAltOutlinedIcon}
-                            setSelectedBtn={setSelectedBtn}
-                            selectedBtn={selectedBtn}
+                            curPath={curPath}
                         />
                         <Item
                             to="/contacts"
                             title="Contacts Information"
                             icon={ContactsOutlinedIcon}
-                            setSelectedBtn={setSelectedBtn}
-                            selectedBtn={selectedBtn}
+                            curPath={curPath}
                         />
                         <Item
                             to="/invoices"
                             title="Invoices"
                             icon={ReceiptOutlinedIcon}
-                            setSelectedBtn={setSelectedBtn}
-                            selectedBtn={selectedBtn}
+                            curPath={curPath}
                         />
 
                         <Typography sx={sectionLabelStyles}>Pages</Typography>
@@ -212,22 +212,19 @@ function Sidebar() {
                             to="/form"
                             title="Profile Form"
                             icon={PersonOutlinedIcon}
-                            setSelectedBtn={setSelectedBtn}
-                            selectedBtn={selectedBtn}
+                            curPath={curPath}
                         />
                         <Item
                             to="/calendar"
                             title="Calendar"
                             icon={CalendarTodayOutlinedIcon}
-                            setSelectedBtn={setSelectedBtn}
-                            selectedBtn={selectedBtn}
+                            curPath={curPath}
                         />
                         <Item
                             to="/faq"
                             title="FAQ Page"
                             icon={HelpOutlinedIcon}
-                            setSelectedBtn={setSelectedBtn}
-                            selectedBtn={selectedBtn}
+                            curPath={curPath}
                         />
 
                         <Typography sx={sectionLabelStyles}>Charts</Typography>
@@ -235,29 +232,25 @@ function Sidebar() {
                             to="/bar"
                             title="Bar Chart"
                             icon={BarChartOutlinedIcon}
-                            setSelectedBtn={setSelectedBtn}
-                            selectedBtn={selectedBtn}
+                            curPath={curPath}
                         />
                         <Item
                             to="/pie"
                             title="Pie Chart"
                             icon={PieChartOutlinedIcon}
-                            setSelectedBtn={setSelectedBtn}
-                            selectedBtn={selectedBtn}
+                            curPath={curPath}
                         />
                         <Item
                             to="/line"
                             title="Line Chart"
                             icon={TimelineOutlinedIcon}
-                            setSelectedBtn={setSelectedBtn}
-                            selectedBtn={selectedBtn}
+                            curPath={curPath}
                         />
                         <Item
                             to="/geography"
                             title="Geography Chart"
                             icon={MapOutlinedIcon}
-                            setSelectedBtn={setSelectedBtn}
-                            selectedBtn={selectedBtn}
+                            curPath={curPath}
                         />
                     </Menu>
                 </Box>
