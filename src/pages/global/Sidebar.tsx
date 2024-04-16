@@ -107,6 +107,7 @@ function Sidebar() {
                     transition: 'all 200ms ease-in-out',
                 }}
             >
+                {/* ------------------------- Collapse Toggler -----------------------------*/}
                 <Box
                     className="flex items-center justify-between"
                     sx={{
@@ -128,7 +129,8 @@ function Sidebar() {
                         <MenuIcon />
                     </IconButton>
                 </Box>
-
+                
+                {/* ------------------------- Profile Photo -----------------------------*/}
                 {!collapsed && (
                     <Box
                         className="flex flex-col items-center p-6 text-sm"
@@ -162,6 +164,7 @@ function Sidebar() {
                     </Box>
                 )}
 
+                {/* ------------------------- Navigation Section -----------------------------*/}
                 <Box
                     sx={{
                         padding: collapsed ? 0 : 3,
