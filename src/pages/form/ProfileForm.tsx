@@ -6,11 +6,14 @@ import { useFormik } from 'formik'
 import { useContext } from 'react'
 import { type ColorMode, ColorModeContext, tokens } from '@/theme'
 
+const phoneRegExp =
+  /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/
+
 const validationSchema = yup.object({
     firstName: yup.string().required('First Name is required'),
     lastName: yup.string().required('Last Name is required'),
     email: yup.string().email('Invalid email').required('Email is required'),
-    phone: yup.string().required('Phone is required'),
+    phone: yup.string().matches(phoneRegExp, "Enter correct phone format").required('Phone is required'),
     address1: yup.string().required('Address is required'),
     address2: yup.string(),
 })
