@@ -7,7 +7,7 @@ import { useContext } from 'react'
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
-const BarChart = ({ data /* see data tab */ }) => {
+const BarChart = ({ data /* see data tab */ , showLegends = true}) => {
     const { themeMode } = useContext<ColorMode>(ColorModeContext)
     const colors = tokens(themeMode)
 
@@ -114,7 +114,7 @@ const BarChart = ({ data /* see data tab */ }) => {
                 from: 'color',
                 modifiers: [['darker', 1.6]],
             }}
-            legends={[
+            legends={!showLegends ? []: [
                 {
                     dataFrom: 'keys',
                     anchor: 'bottom-right',
