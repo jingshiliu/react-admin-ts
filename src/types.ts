@@ -10,3 +10,11 @@ export enum AppTheme{
     DARK = 'dark'
 }
 
+export type InvoiceItem = {
+    id: string
+    name: string
+    email: string
+    cost: number
+    date: string
+    phone: string
+}
