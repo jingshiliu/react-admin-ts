@@ -12,7 +12,7 @@ import TrafficOutlinedIcon from '@mui/icons-material/TrafficOutlined'
 import RevenueSection from './RevenueSection'
 import TransactionSection from './TransactionSection'
 import CampaignSection from './CampaignSection'
-// import SaleSection from './SalesSection'
+import SaleSection from './SalesSection'
 // import GeographySection from './GeographySection'
 
 function Dashboard() {
@@ -78,9 +78,10 @@ function Dashboard() {
                     <RevenueSection colors={colors} />
                     <TransactionSection colors={colors} />
                     <CampaignSection colors={colors} />
+                    <SaleSection colors={colors} />
                     {/* 
                     
-                    <SaleSection colors={colors} />
+                    
                     <GeographySection colors={colors} /> */}
                 </Box>
             </Box>
