@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from 'react'
 import { type ColorMode, ColorModeContext, tokens } from '@/theme'
+import {type MUIIcon } from '@/types'
 
 import { Link, useLocation } from 'react-router-dom'
 import Typography from '@mui/material/Typography'
-import { Box, IconButton, type SvgIconTypeMap } from '@mui/material'
+import { Box, IconButton } from '@mui/material'
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
 import MenuIcon from '@mui/icons-material/Menu'
 import ContactsOutlinedIcon from '@mui/icons-material/ContactsOutlined'
@@ -19,11 +20,7 @@ import MapOutlinedIcon from '@mui/icons-material/MapOutlined'
 import { Sidebar as ProSidebar, Menu, MenuItem } from 'react-pro-sidebar'
 
 import ProfilePhoto from '@/assets/Jingshi_Liu_HeadShot.png'
-import { type OverridableComponent } from '@mui/material/OverridableComponent'
 
-type MUIIcon = OverridableComponent<SvgIconTypeMap<{}, 'svg'>> & {
-    muiName: string
-}
 
 interface ItemProps {
     title: string
