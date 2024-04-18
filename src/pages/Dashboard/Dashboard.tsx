@@ -11,7 +11,7 @@ import GroupAddIcon from '@mui/icons-material/GroupAdd'
 import TrafficOutlinedIcon from '@mui/icons-material/TrafficOutlined'
 import RevenueSection from './RevenueSection'
 import TransactionSection from './TransactionSection'
-// import CampaignSection from './CampaignSection'
+import CampaignSection from './CampaignSection'
 // import SaleSection from './SalesSection'
 // import GeographySection from './GeographySection'
 
@@ -74,11 +74,12 @@ function Dashboard() {
                         icon={TrafficOutlinedIcon}
                     />
                 </Box>
-                <Box className="mt-4 grid h-full grid-cols-3 gap-3">
+                <Box className="mt-4 grid h-full grid-cols-3 grid-rows-2 gap-x-3">
                     <RevenueSection colors={colors} />
                     <TransactionSection colors={colors} />
-                    {/* 
                     <CampaignSection colors={colors} />
+                    {/* 
+                    
                     <SaleSection colors={colors} />
                     <GeographySection colors={colors} /> */}
                 </Box>

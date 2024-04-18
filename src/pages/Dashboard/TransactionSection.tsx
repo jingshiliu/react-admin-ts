@@ -10,9 +10,12 @@ const TransactionCard = ({
     colors,
 }: InvoiceItem & { colors: any }) => {
     return (
-        <Box className="flex items-center justify-between py-4 " sx={{
-            borderTop: `2px solid ${colors.primary[500]}`,
-        }}>
+        <Box
+            className="flex items-center justify-between py-4 "
+            sx={{
+                borderTop: `2px solid ${colors.primary[500]}`,
+            }}
+        >
             <Box>
                 <Typography
                     sx={{
@@ -41,9 +44,10 @@ const TransactionCard = ({
 const TransactionSection = ({ colors }) => {
     return (
         <Box
-            className="h-2/5 overflow-y-scroll rounded pb-4"
+            className=" overflow-y-scroll rounded pb-4"
             sx={{
                 backgroundColor: colors.primary[400],
+                height: '34vh',
             }}
         >
             <Typography
@@ -59,7 +63,11 @@ const TransactionSection = ({ colors }) => {
             </Typography>
             <Box className="px-6">
                 {(mockDataInvoices as InvoiceItem[]).map((invoice) => (
-                    <TransactionCard {...invoice} colors={colors} />
+                    <TransactionCard
+                        {...invoice}
+                        colors={colors}
+                        key={invoice.id}
+                    />
                 ))}
             </Box>
         </Box>

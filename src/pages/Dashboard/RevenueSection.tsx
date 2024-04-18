@@ -9,15 +9,15 @@ const RevenueSection = ({ colors }) => {
     return (
         <Box
             component={'section'}
-            className="col-span-2 h-2/5 rounded py-6"
+            className="col-span-2 rounded py-6"
             sx={{
                 backgroundColor: colors.primary[400],
+                height: '34vh',
             }}
         >
             <Box className="flex justify-between px-8">
                 <Box>
                     <Typography fontWeight={800} color={colors.primary[100]}>
-                        {' '}
                         Revenue Generated
                     </Typography>
                     <Typography
