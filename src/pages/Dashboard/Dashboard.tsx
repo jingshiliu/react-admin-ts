@@ -10,7 +10,7 @@ import PointOfSaleIcon from '@mui/icons-material/PointOfSale'
 import GroupAddIcon from '@mui/icons-material/GroupAdd'
 import TrafficOutlinedIcon from '@mui/icons-material/TrafficOutlined'
 import RevenueSection from './RevenueSection'
-// import TransactionSection from './TransactionSection'
+import TransactionSection from './TransactionSection'
 // import CampaignSection from './CampaignSection'
 // import SaleSection from './SalesSection'
 // import GeographySection from './GeographySection'
@@ -19,7 +19,7 @@ function Dashboard() {
     const { themeMode } = useContext<ColorMode>(ColorModeContext)
     const colors = useMemo(() => tokens(themeMode), [themeMode])
     return (
-        <Box className="flex flex-col p-4 h-full" component={'section'}>
+        <Box className="flex h-full flex-col p-4" component={'section'}>
             <Box
                 className="flex items-end justify-between"
                 component={'section'}
@@ -43,7 +43,7 @@ function Dashboard() {
                 </Button>
             </Box>
 
-            <Box className="mt-4 h-full flex flex-col" component={'section'}>
+            <Box className="mt-4 flex h-full flex-col" component={'section'}>
                 <Box className="grid grid-cols-4 gap-8">
                     <StatBox
                         title="Emails Sent"
@@ -74,9 +74,10 @@ function Dashboard() {
                         icon={TrafficOutlinedIcon}
                     />
                 </Box>
-                <Box className="mt-4 grid grid-cols-3 h-full">
+                <Box className="mt-4 grid h-full grid-cols-3 gap-3">
                     <RevenueSection colors={colors} />
-                    {/* <TransactionSection colors={colors} />
+                    <TransactionSection colors={colors} />
+                    {/* 
                     <CampaignSection colors={colors} />
                     <SaleSection colors={colors} />
                     <GeographySection colors={colors} /> */}
