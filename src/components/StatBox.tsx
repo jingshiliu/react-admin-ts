@@ -37,8 +37,9 @@ const StatBox = ({
                     color={colors.primary[100]}
                     fontSize={'20px'}
                     margin={'0.2em 0'}
+                    fontWeight={900}
                 >
-                    {quantity}
+                    {quantity.toLocaleString()}
                 </Typography>
                 <Typography fontSize={'15px'}>{title}</Typography>
             </Box>
