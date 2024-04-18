@@ -4,18 +4,22 @@ import StatBox from '@/components/StatBox'
 import { Box, Button } from '@mui/material'
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined'
 import { type ColorMode, ColorModeContext, tokens } from '@/theme'
-import { useContext } from 'react'
+import { useContext, useMemo } from 'react'
 import MarkunreadIcon from '@mui/icons-material/Markunread'
-import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
-import TrafficOutlinedIcon from '@mui/icons-material/TrafficOutlined';
-
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale'
+import GroupAddIcon from '@mui/icons-material/GroupAdd'
+import TrafficOutlinedIcon from '@mui/icons-material/TrafficOutlined'
+import RevenueSection from './RevenueSection'
+// import TransactionSection from './TransactionSection'
+// import CampaignSection from './CampaignSection'
+// import SaleSection from './SalesSection'
+// import GeographySection from './GeographySection'
 
 function Dashboard() {
     const { themeMode } = useContext<ColorMode>(ColorModeContext)
-    const colors = tokens(themeMode)
+    const colors = useMemo(() => tokens(themeMode), [themeMode])
     return (
-        <Box className="flex flex-col p-4" component={'section'}>
+        <Box className="flex flex-col p-4 h-full" component={'section'}>
             <Box
                 className="flex items-end justify-between"
                 component={'section'}
@@ -39,7 +43,7 @@ function Dashboard() {
                 </Button>
             </Box>
 
-            <Box className="mt-4 h-full" component={'section'}>
+            <Box className="mt-4 h-full flex flex-col" component={'section'}>
                 <Box className="grid grid-cols-4 gap-8">
                     <StatBox
                         title="Emails Sent"
@@ -70,7 +74,13 @@ function Dashboard() {
                         icon={TrafficOutlinedIcon}
                     />
                 </Box>
-                <Box className="grid "></Box>
+                <Box className="mt-4 grid grid-cols-3 h-full">
+                    <RevenueSection colors={colors} />
+                    {/* <TransactionSection colors={colors} />
+                    <CampaignSection colors={colors} />
+                    <SaleSection colors={colors} />
+                    <GeographySection colors={colors} /> */}
+                </Box>
             </Box>
         </Box>
     )
