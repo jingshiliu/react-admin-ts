@@ -9,6 +9,7 @@ const CampaignSection = ({ colors }) => {
             component={'section'}
             sx={{
                 backgroundColor: colors.primary[400],
+                height: '34vh',
             }}
         >
             <Typography
